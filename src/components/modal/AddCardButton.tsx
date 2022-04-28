@@ -8,15 +8,16 @@ export class AddCardButton extends React.Component<any, any>{
     constructor(props: any) {
         super(props);
         this.state = {
-            isModal: false
+            isModal: false,
+            canvas: React.Component
         }
     }
 
-    async sendNewCard(name: string, text: string) {
+    async sendNewCard(name: string, text: string, imgUri: string) {
         const requestOptions = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({Name: name, Text: text})
+            body: JSON.stringify({Name: name, Text: text, ImgUri: imgUri})
         };
         await fetch(settings.backend_url + rest_api.post_card, requestOptions)
             .catch(reason => console.log(reason))
@@ -26,23 +27,28 @@ export class AddCardButton extends React.Component<any, any>{
         this.setState({isModal: false})
         let name = (document.getElementById('add-card-form-name-input') as HTMLInputElement).value
         let text = (document.getElementById('add-card-form-text-input') as HTMLInputElement).value
+        let imgUri = (document.getElementById('add-card-form-img-uri-input') as HTMLInputElement).value
         if (name == null || text == null)
             return;
-        this.sendNewCard(name, text);
+        this.sendNewCard(name, text, imgUri);
 
     }
 
     render() {
         return(
-            <div className="add-card-button">
-                <button onClick={() => this.setState({isModal: true})}>+</button>
+            <div>
+                <button className="add-card-btn" onClick={() => this.setState({isModal: true})}>+</button>
                 <AddCardForm
                     visible={this.state.isModal}
                     title='Новая карточка'
                     content={
-                        <div>
+                        <div className="add-card-form-content">
+                            <h4>Название карточки</h4>
                             <input name='name' id='add-card-form-name-input'/>
-                            <input name='text' id='add-card-form-text-input'/>
+                            <h4>Описание карточки</h4>
+                            <textarea cols={60} rows={10} name='text' id='add-card-form-text-input'/>
+                            <h4>Картинка</h4>
+                            <input name="img" id="add-card-form-img-uri-input"/>
                         </div>
                     }
                     footer={<button onClick={() => {

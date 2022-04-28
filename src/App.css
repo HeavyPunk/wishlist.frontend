@@ -6,6 +6,8 @@ body{
     height: 50px;
     background-color: white;
     margin-bottom: 20px;
+    display: flex;
+
 }
 
 .footer{
@@ -16,14 +18,20 @@ body{
 
 .card{
     position: absolute;
-    height: 20%;
-    width: 20%;
+    height: 400px;
+    width: 300px;
     z-index: 9;
     background-color: #f1f1f1;
     text-align: center;
     cursor: move;
     border: 1px solid #d3d3d3;
+    border-radius: 20px;
+}
 
+.card-pic{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
 }
 
 .canvas{
@@ -37,13 +45,20 @@ body{
 
 .user-logo{
     display: flex;
-    justify-content: right;
+    margin-top: 5px;
+    margin-left: 90%;
 }
 
 .user-logo #picture{
     height: 40px;
     width: 40px;
-    border-radius: 5px;
+    border-radius: 40px;
+}
+
+.dropdown-menu{
+    position: absolute;
+    top: 30px;
+    right: 10px;
 }
 
 .unselectable {
@@ -118,6 +133,30 @@ body{
 
 .modal-title {
     margin: 0;
+}
+
+.add-card-btn{
+    background-color: white; /* Green */
+    color: gray;
+    margin: 1px;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 0 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 39px;
+    font-weight: bold;
+    transition-duration: 0.4s;
+}
+.add-card-btn:hover{
+    color: white;
+    background-color: gray;
+}
+
+.add-card-form-content{
+    height: 500px;
+    text-align: center;
 }
 
 @keyframes appear {

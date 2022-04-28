@@ -45,9 +45,9 @@ export class Canvas extends React.Component <any, CardsState>{
     render(){
         const {cards} = this.state;
         return(
-            <div className="canvas">
+            <div className="canvas" onClick={this.getCards}>
                 {cards.map(card => (
-                    <Card key = {card.id} minX={10} minY={40} maxX={1100} maxY={500} name={card.name ?? "Имя карточки"} text={card.text ?? "Text: Ооооочень хочу рюкзак"}/>
+                    <Card key = {card.id} minX={10} minY={40} maxX={1100} maxY={500} name={card.name ?? "Имя карточки"} text={card.text ?? "Text: Ооооочень хочу рюкзак"} imgUri={card.imgUri}/>
                 ))}
             </div>
         )

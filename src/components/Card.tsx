@@ -42,6 +42,7 @@ export class Card extends React.Component<Card_props, any>{
             <div className="card unselectable" onMouseDown={this.add} onMouseUp={this.remove}>
                 <h2>{this.props.name}</h2>
                 <p>{this.props.text}</p>
+                <img alt="пикча" className="card-pic" src={this.props.imgUri}/>
             </div>
         );
         return el
