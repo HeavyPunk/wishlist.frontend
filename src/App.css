@@ -1,5 +1,9 @@
 body{
-    background-color: bisque;
+    background-color: #7b919a;
+}
+
+a{
+    text-decoration: none;
 }
 
 .header{
@@ -43,6 +47,14 @@ body{
     height: 600px;
 }
 
+.profile-board-list{
+    border-radius: 20px;
+    background-color: aliceblue;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .user-logo{
     display: flex;
     margin-top: 5px;
@@ -59,6 +71,11 @@ body{
     position: absolute;
     top: 30px;
     right: 10px;
+    background-color: #959a9a;
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
 }
 
 .unselectable {

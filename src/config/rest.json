@@ -1,4 +1,7 @@
 {
-  "all_cards": "getAll/",
-  "post_card": "post/"
+  "post_board": "api/Board/post/",
+  "add_card_to_board": "api/Board/add-card/",
+  "get_board_cards": "api/Board/getCards/",
+  "get_all_boards": "api/Board/getAll/",
+  "update_card_coords": "api/Board/update-card-coords/"
 }

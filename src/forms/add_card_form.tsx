@@ -1,7 +1,7 @@
 import React, {Component, useEffect} from "react";
 import {ModalProps} from "../state/modal_props"
 
-export class AddCardForm extends Component<ModalProps, any>{
+export class AddForm extends Component<ModalProps, any>{
     onKeydown = ({key}: KeyboardEvent) => {
         switch (key){
             case 'Escape':

@@ -1,4 +1,5 @@
 export interface Card_props{
+    cardId: string,
     name: string,
     text: string,
     imgUri: string
@@ -6,4 +7,6 @@ export interface Card_props{
     maxY: number,
     minX: number,
     minY: number,
+    startOffsetX: number,
+    startOffsetY: number,
 }

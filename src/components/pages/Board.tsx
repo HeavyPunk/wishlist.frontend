@@ -1,16 +1,19 @@
 import React from "react";
-import {Header} from "../Header";
+import {BoardHeader} from "../BoardHeader";
 import {Canvas} from "../Canvas";
 import {Footer} from "../Footer";
+import {useParams} from "react-router-dom";
+import {stringify} from "querystring";
 
-export class Board extends React.Component<{board_id: string}, any>{
-    render() {
-        return (
-            <header className="App-header">
-                <Header/>
-                <Canvas/>
-                <Footer/>
-            </header>
-        )
-    }
+export function Board(){
+    const params = useParams()
+    return (
+        <header className="App-header">
+            <BoardHeader board_id={params.board_id ?? "null"}/>
+            <Canvas board_id={params.board_id ?? "null"}/>
+            <p>{params.board_id}</p>
+            <Footer/>
+        </header>
+    )
+
 }

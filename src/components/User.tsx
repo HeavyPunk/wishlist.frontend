@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {AddCardForm} from "../forms/add_card_form";
+import {AddForm} from "../forms/add_card_form";
 import {UserMenu} from "./UserMenu";
 
 export class User extends React.Component<any, any>{

@@ -5,7 +5,7 @@ import {CardsState} from "../state/card_state";
 
 import {Card} from "../components/Card"
 
-export class Canvas extends React.Component <any, CardsState>{
+export class Canvas extends React.Component <{board_id: string}, CardsState>{
 
     constructor(props : any) {
         super(props);
@@ -17,11 +17,12 @@ export class Canvas extends React.Component <any, CardsState>{
     }
 
     getCards(){
-        let requestUrl = settings.backend_url + rest_api.all_cards;
+        let requestUrl = settings.backend_url + rest_api.get_board_cards + this.props.board_id; //TODO: legacy
         fetch(requestUrl)
             .then(res => res.json())
             .then(
                 (result) => {
+                    console.log(result)
                     this.setState(
                         {
                             isLoaded: true,
@@ -47,7 +48,7 @@ export class Canvas extends React.Component <any, CardsState>{
         return(
             <div className="canvas" onClick={this.getCards}>
                 {cards.map(card => (
-                    <Card key = {card.id} minX={10} minY={40} maxX={1100} maxY={500} name={card.name ?? "Имя карточки"} text={card.text ?? "Text: Ооооочень хочу рюкзак"} imgUri={card.imgUri}/>
+                    <Card startOffsetX={card.xOffset} startOffsetY={card.yOffset} key = {card.id} cardId={card.cardId} minX={10} minY={40} maxX={1100} maxY={500} name={card.name ?? "Имя карточки"} text={card.text ?? "Text: Ооооочень хочу рюкзак"} imgUri={card.imgUri}/>
                 ))}
             </div>
         )
