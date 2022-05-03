@@ -3,5 +3,7 @@
   "add_card_to_board": "api/Board/add-card/",
   "get_board_cards": "api/Board/getCards/",
   "get_all_boards": "api/Board/getAll/",
-  "update_card_coords": "api/Board/update-card-coords/"
+  "update_card_coords": "api/Board/update-card-coords/",
+  "delete_card": "api/Board/delete-card/",
+  "delete_board": "api/Board/delete-board/"
 }

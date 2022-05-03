@@ -3,7 +3,7 @@ import settings from "../config/common.json";
 import rest_api from "../config/rest.json";
 import {CardsState} from "../state/card_state";
 
-import {Card} from "../components/Card"
+import {Card} from "./Card"
 
 export class Canvas extends React.Component <{board_id: string}, CardsState>{
 
@@ -17,7 +17,7 @@ export class Canvas extends React.Component <{board_id: string}, CardsState>{
     }
 
     getCards(){
-        let requestUrl = settings.backend_url + rest_api.get_board_cards + this.props.board_id; //TODO: legacy
+        let requestUrl = settings.backend_url + rest_api.get_board_cards + this.props.board_id;
         fetch(requestUrl)
             .then(res => res.json())
             .then(
@@ -48,7 +48,19 @@ export class Canvas extends React.Component <{board_id: string}, CardsState>{
         return(
             <div className="canvas" onClick={this.getCards}>
                 {cards.map(card => (
-                    <Card startOffsetX={card.xOffset} startOffsetY={card.yOffset} key = {card.id} cardId={card.cardId} minX={10} minY={40} maxX={1100} maxY={500} name={card.name ?? "Имя карточки"} text={card.text ?? "Text: Ооооочень хочу рюкзак"} imgUri={card.imgUri}/>
+                    <Card startOffsetX={card.xOffset}
+                          startOffsetY={card.yOffset}
+                          key = {card.id}
+                          cardId={card.cardId}
+                          boardId={this.props.board_id}
+                          minX={10}
+                          minY={40}
+                          maxX={1100}
+                          maxY={500}
+                          name={card.name ?? "Имя карточки"}
+                          text={card.text ?? "Text: Ооооочень хочу рюкзак"}
+                          imgUri={card.imgUri}
+                    />
                 ))}
             </div>
         )

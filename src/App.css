@@ -21,6 +21,7 @@ a{
 }
 
 .card{
+    display: block;
     position: absolute;
     height: 400px;
     width: 300px;

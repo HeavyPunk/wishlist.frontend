@@ -12,16 +12,24 @@ export class Card extends React.Component<Card_props, any>{
     private minX: number = this.props.minX;
     private minY: number = this.props.minY;
 
+    sendRequest(method: string, url: string, body: object){
+        const requestOptions = {
+            method: method,
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(body)
+        };
+        fetch(url, requestOptions)
+            .catch(reason => console.log(reason))
+    }
+
     updateCardCoords(x_offset: number, y_offset: number){
         console.log(x_offset)
         console.log(y_offset)
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({XOffset: x_offset, YOffset: y_offset, CardId: this.props.cardId})
-        };
-        fetch(settings.backend_url + rest_api.update_card_coords, requestOptions)
-            .catch(reason => console.log(reason))
+        this.sendRequest(
+            'POST',
+            settings.backend_url + rest_api.update_card_coords,
+            {XOffset: x_offset, YOffset: y_offset, CardId: this.props.cardId}
+        )
     }
 
     move = (e: any) =>{
@@ -56,6 +64,14 @@ export class Card extends React.Component<Card_props, any>{
         this.updateCardCoords(this.maxX / offsetX, this.maxY / offsetY);
     }
 
+    removeCard = (e: any) => {
+        this.sendRequest(
+            "DELETE",
+            settings.backend_url + rest_api.delete_card,
+            {CardId: this.props.cardId, BoardId: this.props.boardId}
+        )
+    }
+
     render() {
         const style = {
             left: `${this.maxX / this.props.startOffsetX}px`,
@@ -63,10 +79,11 @@ export class Card extends React.Component<Card_props, any>{
         };
 
         let el = (
-            <div style={style} className="card unselectable" onMouseDown={this.add} onMouseUp={this.remove}>
-                <h2>{this.props.name}</h2>
-                <p>{this.props.text}</p>
-                <img alt="пикча" className="card-pic" src={this.props.imgUri}/>
+            <div style={style} className="card" onMouseDown={this.add} onMouseUp={this.remove}>
+                <h2 className={"unselectable"}>{this.props.name}</h2>
+                <p className={"unselectable"}>{this.props.text}</p>
+                <img alt="пикча" className={"card-pic"} src={this.props.imgUri}/>
+                <button onClick={this.removeCard}>Удалить карточку</button>
             </div>
         );
         return el
