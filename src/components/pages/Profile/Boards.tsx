@@ -42,16 +42,19 @@ export class Boards extends React.Component<any, { boards: [any], isLoaded: bool
         this.getBoards();
     }
 
-    Board(props: {boardId: string, boardName: string}){
+    Board(props: {boardId: string, boardName: string, boardDescription: string}){
         return (
-            <li>
-                <div style={{width: "50%"}}>
+            <div className={"board-list-board-segment"} style={{width: "50%"}}>
+                <div className={"common-text-text"}>
                 <a href={"/board/" + props.boardId}>{props.boardName}</a>
+                </div>
                 <button style={{marginRight: "0"}} onClick={
                     () => Requester.sendRequestJson('DELETE', settings.backend_url + rest_api.delete_board, {BoardId: props.boardId})
                 }>Удалить</button>
+                <div>
+                    <p>{props.boardDescription}</p>
                 </div>
-            </li>
+            </div>
         )
     }
 
@@ -59,8 +62,9 @@ export class Boards extends React.Component<any, { boards: [any], isLoaded: bool
         const {boards} = this.state
         return (
             <div className={"profile-board-list"}>
+                <h3 className={"common-text-title"}>Список досок</h3>
                 <ul>
-                    {boards.map(board => (<this.Board boardId={board.boardId} boardName={board.name}/>))}
+                    {boards.map(board => (<this.Board boardId={board.boardId} boardName={board.name} boardDescription={board.description}/>))}
                 </ul>
             </div>
         )

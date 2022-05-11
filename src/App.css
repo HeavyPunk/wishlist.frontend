@@ -37,6 +37,7 @@ a{
     width: 150px;
     height: 150px;
     border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 .canvas{
@@ -175,6 +176,23 @@ a{
 .add-card-form-content{
     height: 500px;
     text-align: center;
+}
+
+.common-text-title{
+    color: rgba(105,154,152,0.78);
+    font-weight: bolder;
+}
+
+.common-text-text{
+    color: #699a98;
+}
+
+.board-list-board-segment{
+    border-left: 3px solid #595980;
+    padding-left: 10px;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    margin-bottom: 10px;
 }
 
 @keyframes appear {
