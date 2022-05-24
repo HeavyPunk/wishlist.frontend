@@ -1,0 +1,58 @@
+.header{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    margin-bottom: 20px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.styleTextTitle{
+    font-family: "Javanese Text";
+    font-size: 30px;
+    color: dimgray;
+    font-weight: bolder;
+}
+.textTitlePosition{
+    display: grid;
+    place-items: center;
+    margin-top: -30px;
+
+}
+
+.userLogo{
+    display: grid;
+    position: relative;
+    margin-left: auto;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.userLogoImg{
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+}
+
+.addBoardButton{
+    display: grid;
+
+    height: 43px;
+    width: 150px;
+    background-color: white;
+    margin: 3px;
+    border: 1px solid;
+    border-radius: 10px;
+    border-style: wave;
+    border-width: revert;
+}
+
+.textaddBoardButton{
+    font-family: "Javanese Text", emoji;
+    font-size: 15px;
+    font-size: large;
+    position: relative;
+    margin-top: 3px;
+}
+

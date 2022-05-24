@@ -38,21 +38,6 @@ a{
     margin-right: 10px;
 }
 
-.user-logo{
-    display: flex;
-    margin-top: 5px;
-}
-.profile-header-title{
-    width: 80%;
-    text-align: center;
-}
-
-.user-logo #picture{
-    height: 40px;
-    width: 40px;
-    border-radius: 40px;
-}
-
 .dropdown-menu{
     width: 100px;
 
@@ -165,15 +150,6 @@ a{
 .add-card-form-content{
     height: 500px;
     text-align: center;
-}
-
-.common-text-title{
-    font-family: "Javanese Text";
-    font-size: 30px;
-    position: relative;
-    bottom:29px;
-    color: dimgray;
-    font-weight: bolder;
 }
 
 .board-list-board-segment{
