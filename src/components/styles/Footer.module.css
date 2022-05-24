@@ -1,0 +1,12 @@
+.footer{
+    height: 10px;
+    width: 100%;
+    background-color: white;
+    margin-top: 20px;
+}
+
+.footerText{
+    color: lightgrey;
+    text-align: center;
+    font-size: 10px;
+}

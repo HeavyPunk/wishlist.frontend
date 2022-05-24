@@ -2,6 +2,7 @@ import React from "react";
 import {Card_props} from "../state/card_props";
 import rest_api from "../config/rest.json"
 import settings from "../config/common.json"
+import styles from "./styles/Card.module.css"
 
 export class Card extends React.Component<Card_props, any>{
 
@@ -79,10 +80,10 @@ export class Card extends React.Component<Card_props, any>{
         };
 
         let el = (
-            <div style={style} className="card" onMouseDown={this.add} onMouseUp={this.remove}>
+            <div style={style} className={styles.card} onMouseDown={this.add} onMouseUp={this.remove}>
                 <h2 className={"unselectable"}>{this.props.name}</h2>
                 <p className={"unselectable"}>{this.props.text}</p>
-                <img alt="пикча" className={"card-pic"} src={this.props.imgUri}/>
+                <img alt="пикча" className={styles.cardPic} src={this.props.imgUri}/>
                 <button onClick={this.removeCard}>Удалить карточку</button>
             </div>
         );

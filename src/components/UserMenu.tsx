@@ -6,7 +6,7 @@ export class UserMenu extends React.Component<{isShow: boolean}, any>{
             return <div/>
         return (
             <div className={"dropdown-menu"}>
-                <p><a href={"/"}>Профиль</a></p>
+                <p><a href={"/"}>Доски</a></p>
                 <p><a href={"#"}>Настройки</a></p>
                 <p><a href={"/"}>Выход</a></p>
             </div>

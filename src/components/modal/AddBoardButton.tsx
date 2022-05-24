@@ -35,7 +35,7 @@ export class AddBoardButton extends React.Component<any, any>{
     render() {
         return(
             <div>
-                <button className="add-card-btn" onClick={() => this.setState({isModal: true})}>+</button>
+                <button className="add-card-btn" onClick={() => this.setState({isModal: true})}>Добавить доску</button>
                 <AddForm
                     visible={this.state.isModal}
                     title='Новая доска'

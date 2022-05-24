@@ -8,6 +8,10 @@ export class ProfileHeader extends React.Component<{board_id: string}, any>{
         return(
             <div className="header">
                 <AddBoardButton board_id={this.props.board_id}/>
+
+                <div className={"profile-header-title"}>
+                    <h3 className={"common-text-title"}> Список досок </h3>
+                </div>
                 <User/>
             </div>
         )

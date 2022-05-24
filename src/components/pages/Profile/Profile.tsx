@@ -9,7 +9,8 @@ export class Profile extends React.Component<any, any>{
             <div>
                 <ProfileHeader board_id={"null"}/>
                 <Boards/>
-                <Footer/>
+
+                {/*<Footer/>*/}
             </div>
         )
     }

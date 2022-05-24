@@ -2,6 +2,7 @@ import React from "react";
 import settings from "../../../config/common.json";
 import rest_api from "../../../config/rest.json";
 import {Requester} from "../../../utils/requester";
+import styles from "../../styles/Boards.module.css";
 
 export class Boards extends React.Component<any, { boards: [any], isLoaded: boolean, error: any}>{
 
@@ -44,15 +45,18 @@ export class Boards extends React.Component<any, { boards: [any], isLoaded: bool
 
     Board(props: {boardId: string, boardName: string, boardDescription: string}){
         return (
-            <div className={"board-list-board-segment"} style={{width: "50%"}}>
-                <div className={"common-text-text"}>
-                <a href={"/board/" + props.boardId}>{props.boardName}</a>
-                </div>
-                <button style={{marginRight: "0"}} onClick={
-                    () => Requester.sendRequestJson('DELETE', settings.backend_url + rest_api.delete_board, {BoardId: props.boardId})
-                }>Удалить</button>
+            <div className={styles.boardListItem}>
                 <div>
-                    <p>{props.boardDescription}</p>
+                <a href={"/board/" + props.boardId} className={styles.nameBoardText}>{props.boardName}</a>
+                </div>
+
+                <button className={styles.buttonDelete} onClick={
+                    () => Requester.sendRequestJson('DELETE', settings.backend_url + rest_api.delete_board, {BoardId: props.boardId})
+                }>
+                    <p className={styles.buttonDeleteText}>Удалить</p></button>
+
+                <div>
+                    <p className={styles.boardText}>{props.boardDescription}</p>
                 </div>
             </div>
         )
@@ -61,8 +65,7 @@ export class Boards extends React.Component<any, { boards: [any], isLoaded: bool
     render() {
         const {boards} = this.state
         return (
-            <div className={"profile-board-list"}>
-                <h3 className={"common-text-title"}>Список досок</h3>
+            <div className={styles.backBoardsList}>
                 <ul>
                     {boards.map(board => (<this.Board boardId={board.boardId} boardName={board.name} boardDescription={board.description}/>))}
                 </ul>
