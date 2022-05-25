@@ -2,6 +2,7 @@ import React from "react";
 import settings from "../../../config/common.json";
 import rest_api from "../../../config/rest.json";
 import {Requester} from "../../../utils/requester";
+import styles from "../../styles/Boards.module.css";
 
 export class Boards extends React.Component<{onDeleteBoard: () => void, boards: [{boardId: string, name: string, description: string}]}, {isLoaded: boolean, error: any}>{
 
@@ -21,8 +22,10 @@ export class Boards extends React.Component<{onDeleteBoard: () => void, boards: 
                 </div>
 
                 <button className={styles.buttonDelete} onClick={
-                    () => Requester.sendRequestJson('DELETE', settings.backend_url + rest_api.delete_board, {BoardId: props.boardId})
-                        .then(props.onDeleteBoard);
+                    () => {
+                        Requester.sendRequestJson('DELETE', settings.backend_url + rest_api.delete_board, {BoardId: props.boardId})
+                            .then(props.onDeleteBoard);
+                    }
                 }>
                     <p className={styles.buttonDeleteText}>Удалить</p></button>
 
