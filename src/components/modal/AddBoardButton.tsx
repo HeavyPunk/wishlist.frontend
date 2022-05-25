@@ -1,9 +1,9 @@
 import React from "react";
-import {AddForm} from "../../forms/add_card_form";
+import {AddForm} from "../../forms/add_form";
 import settings from "../../config/common.json";
 import rest_api from "../../config/rest.json";
 
-export class AddBoardButton extends React.Component<any, any>{
+export class AddBoardButton extends React.Component<{board_id: string, onBoardAdd: () => void}, { isModal: boolean }>{
 
     constructor(props: any) {
         super(props);
@@ -12,25 +12,27 @@ export class AddBoardButton extends React.Component<any, any>{
         }
     }
 
-    async sendNewCard(name: string, text: string) {
+    async sendNewBoard(name: string, text: string) {
         const requestOptions = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({Name: name, Description: text})
         };
+        let isSuccess: boolean = false
         await fetch(settings.backend_url + rest_api.post_board, requestOptions) //TODO: legacy
+            .then(result => isSuccess = result.ok)
             .catch(reason => console.log(reason))
     }
 
-    submit(){
+    submit() {
         this.setState({isModal: false})
         let name = (document.getElementById('add-card-form-name-input') as HTMLInputElement).value
         let text = (document.getElementById('add-card-form-text-input') as HTMLInputElement).value
         if (name == null || text == null)
             return;
-        this.sendNewCard(name, text);
-
+        this.sendNewBoard(name, text).then(() => this.props.onBoardAdd());
     }
+
 
     render() {
         return(
@@ -47,9 +49,12 @@ export class AddBoardButton extends React.Component<any, any>{
                             <textarea cols={60} rows={10} name='text' id='add-card-form-text-input'/>
                         </div>
                     }
-                    footer={<button onClick={() => {
-                        this.submit();
-                    }}>Добавить</button>}
+                    footer={
+                        <button onClick={
+                            () => {this.submit();}
+                        }>
+                            Добавить
+                        </button>}
                     onClose={() => {
                         this.setState({isModal: false})
                     }}

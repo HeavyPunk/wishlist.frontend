@@ -1,5 +1,5 @@
 import React from "react";
-import {AddForm} from "../../forms/add_card_form";
+import {AddForm} from "../../forms/add_form";
 import settings from "../../config/common.json";
 import rest_api from "../../config/rest.json";
 
