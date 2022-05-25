@@ -8,7 +8,7 @@ export class ProfileHeader extends React.Component<{board_id: string, onBoardAdd
     render() {
         return(
             <div className={styles.header}>
-                <AddBoardButton board_id={this.props.board_id}/>
+                <AddBoardButton board_id={this.props.board_id} onBoardAdd={this.props.onBoardAdd}/>
 
                 <div className={styles.textTitlePosition}>
                     <p className={styles.styleTextTitle}> Список досок </p>

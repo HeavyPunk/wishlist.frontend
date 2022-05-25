@@ -2,6 +2,7 @@ import React from "react";
 import {AddForm} from "../../forms/add_form";
 import settings from "../../config/common.json";
 import rest_api from "../../config/rest.json";
+import styles from "./../styles/HeaderWithBoardsList.module.css"
 
 export class AddCardButton extends React.Component<{board_id: string}, any>{
 
@@ -37,7 +38,7 @@ export class AddCardButton extends React.Component<{board_id: string}, any>{
     render() {
         return(
             <div>
-                <button className="add-card-btn" onClick={() => this.setState({isModal: true})}>Добавить доску</button>
+                <button className={styles.addBoardButton} onClick={() => this.setState({isModal: true})}><p className={styles.textaddBoardButton}>Добавить карточку</p></button>
                 <AddForm
                     visible={this.state.isModal}
                     title='Новая карточка'

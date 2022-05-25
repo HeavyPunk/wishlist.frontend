@@ -5,7 +5,7 @@ import {ProfileHeader} from "./ProfileHeader";
 import settings from "../../../config/common.json";
 import rest_api from "../../../config/rest.json";
 
-export class Profile extends React.Component<any, {boards: [{boardId: string, name: string, description: string}], isLoaded: boolean, error: any}>{
+export class Profile extends React.Component<any, {boards: [{boardId: string, name: string, description: string}], isLoaded: boolean, error: any}> {
 
     constructor(e: any) {
         super(e);
@@ -15,7 +15,8 @@ export class Profile extends React.Component<any, {boards: [{boardId: string, na
             error: null,
         }
     }
-    getBoards(){
+
+    getBoards() {
         let requestUrl = settings.backend_url + rest_api.get_all_boards;
         console.log(requestUrl)
         fetch(requestUrl)

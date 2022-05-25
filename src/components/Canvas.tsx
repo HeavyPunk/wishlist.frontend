@@ -2,6 +2,7 @@ import React, {useRef} from "react";
 import settings from "../config/common.json";
 import rest_api from "../config/rest.json";
 import {CardsState} from "../state/card_state";
+import styles from "./styles/Canvas.module.css"
 
 import {Card} from "./Card"
 
@@ -46,7 +47,7 @@ export class Canvas extends React.Component <{board_id: string}, CardsState>{
     render(){
         const {cards} = this.state;
         return(
-            <div className="canvas" onClick={this.getCards}>
+            <div className={styles.canvas} onClick={this.getCards}>
                 {cards.map(card => (
                     <Card startOffsetX={card.xOffset}
                           startOffsetY={card.yOffset}

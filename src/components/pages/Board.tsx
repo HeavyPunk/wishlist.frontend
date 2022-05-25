@@ -11,8 +11,7 @@ export function Board(){
         <header className="App-header">
             <BoardHeader board_id={params.board_id ?? "null"}/>
             <Canvas board_id={params.board_id ?? "null"}/>
-            <p>{params.board_id}</p>
-            <Footer/>
+            {/*<Footer/>*/}
         </header>
     )
 

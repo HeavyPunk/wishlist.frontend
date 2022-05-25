@@ -1,14 +1,18 @@
 import React from "react";
+import styles from "./styles/HeaderWithBoardsList.module.css"
+
 
 export class UserMenu extends React.Component<{isShow: boolean}, any>{
     render() {
         if (!this.props.isShow)
             return <div/>
         return (
-            <div className={"dropdown-menu"}>
-                <p><a href={"/"}>Доски</a></p>
-                <p><a href={"#"}>Настройки</a></p>
-                <p><a href={"/"}>Выход</a></p>
+            <div className={styles.nav}>
+                <p className={styles.navText}><a href={"/"}>Доски</a></p>
+                <hr className={styles.hrStyle}></hr>
+                <p className={styles.navText}><a href={"#"}>Настройки</a></p>
+                <hr className={styles.hrStyle}></hr>
+                <p className={styles.navText}><a href={"/"}>Выход</a></p>
             </div>
         )
     }
