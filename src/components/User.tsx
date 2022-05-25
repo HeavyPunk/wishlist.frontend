@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import {AddForm} from "../forms/add_card_form";
 import {UserMenu} from "./UserMenu";
 import styles from "./styles/HeaderWithBoardsList.module.css";
 

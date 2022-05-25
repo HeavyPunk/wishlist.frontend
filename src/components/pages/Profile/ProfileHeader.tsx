@@ -3,7 +3,7 @@ import {AddBoardButton} from "../../modal/AddBoardButton";
 import {User} from "../../User";
 import styles from "./../../styles/HeaderWithBoardsList.module.css"
 
-export class ProfileHeader extends React.Component<{board_id: string}, any>{
+export class ProfileHeader extends React.Component<{board_id: string, onBoardAdd: any}, any>{
 
     render() {
         return(
