@@ -1,14 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {BoardHeader} from "./components/BoardHeader";
-import {Canvas} from "./components/Canvas";
-import {Footer} from "./components/Footer";
 import {BrowserRouter, Outlet, useParams} from "react-router-dom";
 import {Route} from "react-router-dom";
 import {Routes} from "react-router-dom";
 import {Board} from "./components/pages/Board";
 import {Profile} from "./components/pages/Profile/Profile";
+import AuthorizationWindow from "./components/pages/Authorization"
 
 function Comp(){
     const params = useParams()
@@ -21,12 +18,11 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <div>
           <Routes>
-              <Route path={"/"} element={<Profile/>}/>
+              <Route path={"/"} element={<AuthorizationWindow/>}/>
+              <Route path={"/profile"} element={<Profile/>}/>
               <Route path={"/board/:board_id"} element={<Board/>}/>
           </Routes>
-        </div>
       </BrowserRouter>
     </div>
   );

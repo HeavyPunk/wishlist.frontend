@@ -3,6 +3,7 @@ import {AddForm} from "../../forms/add_form";
 import settings from "../../config/common.json";
 import rest_api from "../../config/rest.json";
 import styles from "../styles/HeaderWithBoardsList.module.css";
+import s from "../styles/Form.module.css"
 
 export class AddBoardButton extends React.Component<{board_id: string, onBoardAdd: () => void}, { isModal: boolean }>{
 
@@ -42,20 +43,21 @@ export class AddBoardButton extends React.Component<{board_id: string, onBoardAd
                     <p className={styles.textaddBoardButton}>Добавить доску</p></button>
                 <AddForm
                     visible={this.state.isModal}
-                    title='Новая доска'
+                    title='Добавить доску'
                     content={
                         <div className="add-card-form-content">
-                            <h4>Название доски</h4>
+                            <h4 className={s.textStyle}>Название:</h4>
                             <input name='name' id='add-card-form-name-input'/>
-                            <h4>Описание доски</h4>
+                            <h4 className={s.textStyle}>Описание:</h4>
                             <textarea cols={60} rows={10} name='text' id='add-card-form-text-input'/>
                         </div>
                     }
                     footer={
-                        <button onClick={
+                        <button className={s.buttonDelete} onClick={
                             () => {this.submit();}
-                        }>
+                        }> <p className={s.buttonDeleteText}>
                             Добавить
+                        </p>
                         </button>}
                     onClose={() => {
                         this.setState({isModal: false})

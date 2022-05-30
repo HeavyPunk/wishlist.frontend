@@ -1,5 +1,6 @@
 import React, {Component, useEffect} from "react";
 import {ModalProps} from "../state/modal_props"
+import s from "../components/styles/Form.module.css"
 
 export class AddForm extends Component<ModalProps, any>{
     onKeydown = ({key}: KeyboardEvent) => {
@@ -15,16 +16,18 @@ export class AddForm extends Component<ModalProps, any>{
             return null;
 
         return (
-            <div className='modal' onClick={this.props.onClose}>
-                <div className='modal-dialog' onClick={e => e.stopPropagation()}>
-                    <div className='modal-header'>
-                        <h3 className='modal-title'>{this.props.title}</h3>
-                        <span className='modal-close' onClick={this.props.onClose}>&times;</span>
+            <div className={s.modal} onClick={this.props.onClose}>
+                <div className={s.modalDialog} onClick={e => e.stopPropagation()}>
+                    <div className={s.modalHeader}>
+                        <h3 className={s.modalTitle}>{this.props.title}</h3>
+                        <span className={s.modalClose} onClick={this.props.onClose}>&times;</span>
                     </div>
-                    <div className='modal-body'>
-                        <div className='modal-content'>{this.props.content}</div>
+
+                    <div className={s.modalBody}>
+                        <div className={s.modalContent}>{this.props.content}</div>
                     </div>
-                    {this.props.footer && <div className='modal-footer'>{this.props.footer}</div>}
+
+                    {this.props.footer && <div className={s.modalFooter}>{this.props.footer}</div>}
                 </div>
             </div>
         )

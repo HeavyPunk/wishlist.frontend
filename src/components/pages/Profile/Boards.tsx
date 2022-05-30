@@ -27,7 +27,7 @@ export class Boards extends React.Component<{onDeleteBoard: () => void, boards: 
                             .then(props.onDeleteBoard);
                     }
                 }>
-                    <p className={styles.buttonDeleteText}>Удалить</p></button>
+                    <p className={styles.buttonDelete}>Удалить</p></button>
 
                 <div>
                     <p className={styles.boardText}>{props.boardDescription}</p>

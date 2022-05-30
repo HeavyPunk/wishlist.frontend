@@ -19,15 +19,6 @@ a{
     display: flex;
 }
 
-.canvas{
-    border-radius: 20px;
-    background-color: dimgray;
-    padding: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    height: 650px;
-}
-
 .profile-board-list{
     width: 97%;
     height: 600px;

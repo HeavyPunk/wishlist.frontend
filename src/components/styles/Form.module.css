@@ -1,0 +1,87 @@
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    animation-name: appear;
+    animation-duration: 300ms;
+}
+
+.modalDialog {
+    width: 100%;
+    max-width: 550px;
+    /*background: white;*/
+    background: url("https://krot.info/uploads/posts/2021-02/thumbs/1613661601_56-p-foni-dlya-chatov-telegram-56.jpg");
+    /*background: url("https://avatars.mds.yandex.net/get-zen_doc/4419441/pub_60a698a557455d23cad2a825_60a69adb52636e385aafa17c/scale_1200");*/
+    position: relative;
+    margin: 0 20px;
+    max-height: calc(100vh - 40px);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slide-in;
+    animation-duration: 0.5s;
+
+    border-radius: 20px;
+}
+
+.modalHeader,
+.modalFooter {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+.modalHeader {
+    border-bottom: 1px solid #dbdbdb;
+    justify-content: space-between;
+}
+
+.modalFooter {
+    border-top: 1px solid #dbdbdb;
+    justify-content: flex-end;
+}
+
+.modalClose {
+    cursor: pointer;
+    padding: 1rem;
+    margin: -1rem -1rem -1rem auto;
+}
+.modalBody {
+    overflow: auto;
+}
+.modalContent {
+    padding: 1rem;
+}
+
+.modalTitle {
+    margin: 0;
+}
+
+.textStyle{
+    font-family: "Javanese Text";
+    font-size: 20px;
+}
+.buttonDeleteText{
+    font-family: "Javanese Text";
+    font-size: 10px;
+}
+
+.buttonDelete{
+    width: 600px;
+    border-radius: 20px;
+    border-style: double;
+    border-width: 2px;
+    border-color: dimgray;
+    opacity: 50%;
+}
