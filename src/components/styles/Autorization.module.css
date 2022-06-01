@@ -2,7 +2,26 @@
     margin: 0 auto;
     margin-top: 15%;
 
-    background: #595980;
-    width: 25%;
-    height: max-content;
+    background: dimgray;
+    border-radius: 10px;
+    width: 20%;
+    height: 200px;
+}
+
+.header{
+    margin-left: 15%;
+    color: white;
+    /*font-family: "Javanese Text";*/
+}
+
+.buttonSubmit{
+
+}
+
+.form{
+    margin-left: 22%;
+}
+
+.formButton{
+    margin-left: 23%;
 }

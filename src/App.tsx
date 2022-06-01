@@ -5,7 +5,7 @@ import {Route} from "react-router-dom";
 import {Routes} from "react-router-dom";
 import {Board} from "./components/pages/Board";
 import {Profile} from "./components/pages/Profile/Profile";
-import AuthorizationWindow from "./components/pages/Authorization"
+import AuthorizationWindow from "./components/pages/Authorization/Authorization"
 
 function Comp(){
     const params = useParams()
